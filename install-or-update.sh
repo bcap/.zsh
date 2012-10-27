@@ -11,7 +11,7 @@ git fetch --all
 
 # checkout and update master
 git branch --set-upstream master origin/master
-git checkout master
+if ! git branch | grep -e '^* master$' > /dev/null; then git checkout master; fi
 git pull
 
 # create the symbolic link
