@@ -31,7 +31,19 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-alias ll='ls -lhp'
+alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
-PATH="/Users/bpenteado/bin:/usr/local/bin:$PATH"
+# Additional PATH
+PATH="/usr/local/bin:$PATH"
+
+# Mac home PATH
+PATH="/Users/polaco/bin:/Users/bpenteado/bin:$PATH"
+
+# Linux home Path
+PATH="/home/polaco/bin:/home/bpenteado/bin:$PATH"
+
+# Mac brew
+if which brew > /dev/null; then
+	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+fi
