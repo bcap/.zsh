@@ -31,19 +31,21 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+HISTSIZE=10000
+SAVEHIST=10000
+
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
-# Additional PATH
-PATH="/usr/local/bin:$PATH"
+# additional fpath
+fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 
-# Mac home PATH
-PATH="/Users/polaco/bin:/Users/bpenteado/bin:$PATH"
-
-# Linux home Path
-PATH="/home/polaco/bin:/home/bpenteado/bin:$PATH"
+# additional path
+path=(~/bin /usr/local/bin $path)
 
 # Mac brew
 if which brew > /dev/null; then
-	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	export BYOBU_PREFIX=$(brew --prefix)
+	path=($(brew --prefix coreutils)/libexec/gnubin $path)"
 fi
+
