@@ -46,6 +46,5 @@ path=(~/bin /usr/local/bin $path)
 # Mac brew
 if which brew > /dev/null; then
 	export BYOBU_PREFIX=$(brew --prefix)
-	path=($(brew --prefix coreutils)/libexec/gnubin $path)"
+	path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
-
