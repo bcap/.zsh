@@ -25,25 +25,30 @@ ZSH_THEME="bcap"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+
+if which git > /dev/null; then
+	plugins=(git)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+HISTSIZE=10000
+SAVEHIST=10000
+
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
-# Additional PATH
-PATH="/usr/local/bin:$PATH"
-
-# Mac home PATH
-PATH="/Users/polaco/bin:/Users/bpenteado/bin:$PATH"
-
-# Linux home Path
-PATH="/home/polaco/bin:/home/bpenteado/bin:$PATH"
-
 # Mac brew
 if which brew > /dev/null; then
-	PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	export BYOBU_PREFIX=$(brew --prefix)
+	path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
+
+# additional fpath
+fpath=(~/.oh-my-zsh/zsh-completions $fpath)
+
+# additional path
+path=(~/bin /usr/local/bin /usr/local/sbin $path)
+
