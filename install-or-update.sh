@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Fix for when running this script by puppet.
+# the HOME can be passed as an argument so the messed $HOME
+# from puppet 2.X.X wont create problems
+if [[ $# > 0 ]]; then HOME=$1; fi
+
 cd $(dirname $0)
 
 # check for a git repo
