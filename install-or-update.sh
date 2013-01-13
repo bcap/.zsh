@@ -20,4 +20,4 @@ git merge origin/master
 git merge forkro/master
 
 # create the symbolic link
-if [ ! -e "$HOME/.zshrc" ]; then ln -s -v $(dirname $0)/.zshrc "$HOME/.zshrc"; fi
+if [ ! -e "$HOME/.zshrc" ]; then ln -s -v .zshrc "$HOME/.zshrc"; fi
