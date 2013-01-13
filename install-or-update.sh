@@ -7,7 +7,7 @@ if [ ! -d .git ]; then git init; fi
 
 # adjust remotes
 git remote | xargs -I '$' git remote rm '$'
-git remote add -t master bcap git@github.com:bcap/oh-my-zsh.git
+git remote add -t master fork git@github.com:bcap/oh-my-zsh.git
 git remote add -t master origin git://github.com/robbyrussell/oh-my-zsh.git
 git fetch --all
 
