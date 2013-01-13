@@ -37,6 +37,8 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=10000
 SAVEHIST=10000
 
+EDITOR=vim
+
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
