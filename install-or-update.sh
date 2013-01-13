@@ -14,7 +14,8 @@ git fetch --all
 # checkout and update master
 git branch --set-upstream master origin/master
 if ! git branch | grep -e '^* master$' > /dev/null; then git checkout master; fi
-git pull
+git merge origin/master
+git merge fork/master
 
 # create the symbolic link
 if [ ! -e "$HOME/.zshrc" ]; then ln -s -v $(dirname $0)/.zshrc "$HOME/.zshrc"; fi
