@@ -54,3 +54,7 @@ fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 # additional path
 path=(~/bin /usr/local/bin /usr/local/sbin $path)
 
+# aws stuff
+export EC2_PRIVATE_KEY=$(echo $HOME/Dropbox/nix/aws/pk-*.pem)
+export EC2_CERT=$(echo $HOME/Dropbox/nix/aws/cert-*.pem)
+export AWS_CREDENTIAL_FILE=$HOME/Dropbox/nix/aws/aws-credentials-fullaccess
