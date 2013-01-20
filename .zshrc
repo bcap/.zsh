@@ -55,13 +55,13 @@ fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 path=(~/bin /usr/local/bin /usr/local/sbin $path)
 
 # aws stuff
-AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws/root
+AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
 	# personal var do help me out
 	export AWS_CREDENTIALS_DIR 
 
 	# boto uses this
-	export AWS_CREDENTIAL_FILE=$(echo $AWS_CREDENTIALS_DIR/aws-credentials-*)
+	export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
 
 	# AWS tools uses this
 	export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
