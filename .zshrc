@@ -30,10 +30,9 @@ ZSH_THEME="bcap"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-if which git > /dev/null; then
-	plugins=(git)
-fi
+plugins=(git)
 
+# Enabling oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 
