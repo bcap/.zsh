@@ -52,7 +52,7 @@ fi
 fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 
 # additional path
-path=(~/bin /usr/local/bin /usr/local/sbin $path)
+path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
 
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
