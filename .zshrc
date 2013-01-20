@@ -57,6 +57,7 @@ path=(~/bin /usr/local/bin /usr/local/sbin $path)
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws/root
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
+	export AWS_CREDENTIALS_DIR
 	export EC2_PRIVATE_KEY=$(echo $AWS_CREDENTIALS_DIR/pk-*.pem)
 	export EC2_CERT=$(echo $AWS_CREDENTIALS_DIR/cert-*.pem)
 	export AWS_CREDENTIAL_FILE=$(echo $AWS_CREDENTIALS_DIR/aws-credentials-*)
