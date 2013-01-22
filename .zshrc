@@ -1,3 +1,7 @@
+#################################################################################################
+###    Oh My Zsh configs    #####################################################################
+#################################################################################################
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -26,16 +30,20 @@ ZSH_THEME="bcap"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-if which git > /dev/null; then
-	plugins=(git)
-fi
+plugins=(git)
 
+# Enabling oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+
+#################################################################################################
+###    Zsh configs    ###########################################################################
+#################################################################################################
 
 HISTSIZE=10000
 SAVEHIST=10000
+
+export EDITOR=vim
 
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
@@ -50,5 +58,18 @@ fi
 fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 
 # additional path
-path=(~/bin /usr/local/bin /usr/local/sbin $path)
+path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
 
+# aws stuff
+AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
+if [[ -d $AWS_CREDENTIALS_DIR ]]; then
+	# personal var do help me out
+	export AWS_CREDENTIALS_DIR 
+
+	# boto uses this
+	export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
+
+	# AWS tools uses this
+	export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+	export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+fi
