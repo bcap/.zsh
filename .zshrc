@@ -48,17 +48,17 @@ export EDITOR=vim
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
-# Mac brew
-if which brew > /dev/null; then
-	export BYOBU_PREFIX=$(brew --prefix)
-	path=($(brew --prefix coreutils)/libexec/gnubin $path)
-fi
-
 # additional fpath
 fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 
 # additional path
 path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
+
+# Mac brew
+if which brew > /dev/null; then
+        export BYOBU_PREFIX=$(brew --prefix)
+        path=($(brew --prefix coreutils)/libexec/gnubin $path)
+fi
 
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
