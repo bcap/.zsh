@@ -74,10 +74,7 @@ setopt EXTENDED_HISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 
-export EDITOR=vim
-
-alias ll='ls -lhp --color=auto'
-alias la='ll -A'
+EDITOR=vim
 
 # additional fpath
 fpath=(~/.oh-my-zsh/zsh-completions $fpath)
@@ -86,21 +83,35 @@ fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
 
 # Mac brew
-if which brew > /dev/null; then
-        export BYOBU_PREFIX=$(brew --prefix)
-        path=($(brew --prefix coreutils)/libexec/gnubin $path)
+if (( $+commands[brew] )); then
+    export BYOBU_PREFIX=$(brew --prefix)
+    path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
+
+
+#################################################################################################
+###    Aliases    ###############################################################################
+#################################################################################################
+
+alias ll='ls -lhp --color=auto'
+alias la='ll -A'
+
+
+
+#################################################################################################
+###    Misc    ##################################################################################
+#################################################################################################
 
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
-	# personal var do help me out
-	export AWS_CREDENTIALS_DIR 
+    # personal var do help me out
+    export AWS_CREDENTIALS_DIR
 
-	# boto uses this
-	export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
+    # boto uses this
+    export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
 
-	# AWS tools uses this
-	export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
-	export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+    # AWS tools uses this
+    export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+    export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
 fi
