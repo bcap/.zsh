@@ -96,6 +96,8 @@ fi
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
+alias today='date +%Y%m%d'
+alias now='date +%Y%m%d-%H%M%S'
 
 
 #################################################################################################
