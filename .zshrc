@@ -104,6 +104,9 @@ alias now='date +%Y%m%d-%H%M%S'
 ###    Misc    ##################################################################################
 #################################################################################################
 
+# maven stuff
+export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
+
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
