@@ -49,14 +49,6 @@ SAVEHIST=10000
 
 export EDITOR=vim
 
-alias ll='ls -lhp --color=auto'
-alias la='ll -A'
-
-alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferences ZLIB --armor'
-alias encrypt-with-pass='gpg --symmetric'
-alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
-alias decrypt='gpg -d'
-
 # setting path and fpath in an array form
 fpath=(
     ~/.oh-my-zsh/zsh-completions 
@@ -94,3 +86,15 @@ if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
     export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
 fi
+
+#######################
+# Aliases
+#######################
+
+alias ll='ls -lhp --color=auto'
+alias la='ll -A'
+
+alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferences ZLIB --armor'
+alias encrypt-with-pass='gpg --symmetric'
+alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
+alias decrypt='gpg -d'
