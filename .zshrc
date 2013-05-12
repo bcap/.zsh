@@ -48,6 +48,11 @@ export EDITOR=vim
 alias ll='ls -lhp --color=auto'
 alias la='ll -A'
 
+alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferences ZLIB --armor'
+alias encrypt-with-pass='gpg --symmetric'
+alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
+alias decrypt='gpg -d'
+
 # additional fpath
 fpath=(~/.oh-my-zsh/zsh-completions $fpath)
 
