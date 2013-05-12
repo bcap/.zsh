@@ -77,20 +77,20 @@ path=(
 
 # Mac brew
 if which brew > /dev/null; then
-        export BYOBU_PREFIX=$(brew --prefix)
-        path=($(brew --prefix coreutils)/libexec/gnubin $path)
+    export BYOBU_PREFIX=$(brew --prefix)
+    path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
 
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
-	# personal var do help me out
-	export AWS_CREDENTIALS_DIR 
+    # personal var do help me out
+    export AWS_CREDENTIALS_DIR 
 
-	# boto uses this
-	export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
+    # boto uses this
+    export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
 
-	# AWS tools uses this
-	export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
-	export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+    # AWS tools uses this
+    export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
+    export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
 fi
