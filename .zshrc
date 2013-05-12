@@ -57,11 +57,23 @@ alias encrypt-with-pass='gpg --symmetric'
 alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
 alias decrypt='gpg -d'
 
-# additional fpath
-fpath=(~/.oh-my-zsh/zsh-completions $fpath)
+# setting path and fpath in an array form
+fpath=(
+    ~/.oh-my-zsh/zsh-completions 
+    $fpath
+)
 
-# additional path
-path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
+path=(
+    $HOME/bin 
+    /usr/local/heroku/bin 
+    /usr/local/bin 
+    /usr/local/sbin 
+    /usr/bin 
+    /usr/sbin 
+    /bin 
+    /sbin 
+    $path
+)
 
 # Mac brew
 if which brew > /dev/null; then
