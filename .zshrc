@@ -81,7 +81,7 @@ export LESS="--chop-long-lines --shift .3 --raw-control-chars"
 export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 
 # Mac brew
-if which brew > /dev/null; then
+if whence brew > /dev/null; then
     export BYOBU_PREFIX=$(brew --prefix)
     path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
