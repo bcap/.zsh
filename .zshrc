@@ -105,6 +105,12 @@ fi
 ###    Aliases    ###############################################################################
 #################################################################################################
 
+alias -g G=' | grep '
+alias -g L=' | less '
+alias -g V=' | vim - '
+alias -g F='find . G'
+alias -g N=' > /dev/null 2>&1 '
+
 alias ls='ls --color=auto'
 alias ll='ls -lhp'
 alias la='ll -A'
