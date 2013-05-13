@@ -11,30 +11,10 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bcap"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
 plugins=(git)
 
 # Enabling oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-
 
 
 #################################################################################################
@@ -66,52 +46,51 @@ unsetopt SHARE_HISTORY
 setopt EXTENDED_HISTORY
 
 
+#################################################################################################
+###    Environment Vars    ######################################################################
+#################################################################################################
 
-#################################################################################################
-###    Variables    #############################################################################
-#################################################################################################
+# setting path and fpath in an array form
+fpath=(
+    ~/.oh-my-zsh/zsh-completions 
+    $fpath
+)
+
+path=(
+    $HOME/bin 
+    /usr/local/heroku/bin 
+    /usr/local/bin 
+    /usr/local/sbin 
+    /usr/bin 
+    /usr/sbin 
+    /bin 
+    /sbin 
+    $path
+)
 
 HISTSIZE=10000
 SAVEHIST=10000
 
-EDITOR=vim
+# shell general
+export EDITOR="vim"
+export VISUAL="subl --wait"
+export PAGER="less"
+export LESS="--chop-long-lines --shift .3 --raw-control-chars"
 
-# additional fpath
-fpath=(~/.oh-my-zsh/zsh-completions $fpath)
-
-# additional path
-path=($HOME/bin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin $path)
+# maven
+export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 
 # Mac brew
-if (( $+commands[brew] )); then
+if whence brew > /dev/null; then
     export BYOBU_PREFIX=$(brew --prefix)
     path=($(brew --prefix coreutils)/libexec/gnubin $path)
 fi
-
-
-#################################################################################################
-###    Aliases    ###############################################################################
-#################################################################################################
-
-alias ll='ls -lhp --color=auto'
-alias la='ll -A'
-
-alias today='date +%Y%m%d'
-alias now='date +%Y%m%d-%H%M%S'
-
-
-#################################################################################################
-###    Misc    ##################################################################################
-#################################################################################################
-
-# maven stuff
-export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 
 # aws stuff
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     # personal var do help me out
-    export AWS_CREDENTIALS_DIR
+    export AWS_CREDENTIALS_DIR 
 
     # boto uses this
     export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
@@ -120,3 +99,35 @@ if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
     export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
 fi
+
+
+#################################################################################################
+###    Aliases    ###############################################################################
+#################################################################################################
+
+alias -g G=' | grep '
+alias -g L=' | less '
+alias -g V=' | vim - '
+alias -g F='find . G'
+alias -g N=' > /dev/null 2>&1 '
+
+alias ls='ls --color=auto'
+alias ll='ls -lhp'
+alias la='ll -A'
+
+alias today='date +%Y%m%d'
+alias now='date +%Y%m%d-%H%M%S'
+
+alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferences ZLIB --armor'
+alias encrypt-with-pass='gpg --symmetric'
+alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
+alias decrypt='gpg -d'
+
+alias ack='ack-grep'
+
+if whence git N; then
+    alias diff='git diff'
+else
+    alias diff='diff -u'
+fi
+
