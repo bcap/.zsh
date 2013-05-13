@@ -122,3 +122,12 @@ alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferen
 alias encrypt-with-pass='gpg --symmetric'
 alias encrypt-with-key='gpg --encrypt --sign --recipient polaco@gmail.com'
 alias decrypt='gpg -d'
+
+alias ack='ack-grep'
+
+if whence git N; then
+    alias diff='git diff'
+else
+    alias diff='diff -u'
+fi
+
