@@ -75,7 +75,7 @@ SAVEHIST=10000
 export EDITOR="vim"
 export VISUAL="subl --wait"
 export PAGER="less"
-export LESS="--chop-long-lines --shift .3 --raw-control-chars"
+export LESS="--chop-long-lines --raw-control-chars"
 
 # maven
 export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
