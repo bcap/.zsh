@@ -72,10 +72,15 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # shell general
+export SYSTEM="$(uname -s)"
 export EDITOR="vim"
 export VISUAL="subl --wait"
 export PAGER="less"
 export LESS="--chop-long-lines --raw-control-chars"
+
+if [[ "$SYSTEM" == "Linux" ]]; then
+    export LESS="$LESS --shift 0.3"
+fi
 
 # maven
 export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
