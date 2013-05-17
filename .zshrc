@@ -90,7 +90,7 @@ fi
 
 # setting path and fpath in an array form (declared as lowercase variables)
 fpath=(
-    ~/.oh-my-zsh/zsh-completions 
+    $HOME/.oh-my-zsh/zsh-completions 
     $fpath
 )
 
