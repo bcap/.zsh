@@ -127,7 +127,7 @@ if [[ "$SYSTEM" == "Darwin" ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 
     # MAC brew specific
-    if whence brew > /dev/null; then
+    if whence brew N; then
         path=($(brew --prefix coreutils)/libexec/gnubin $path)
     fi
 fi
