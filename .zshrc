@@ -71,24 +71,27 @@ path=(
 HISTSIZE=10000
 SAVEHIST=10000
 
-# shell general
+# general vars
 export SYSTEM="$(uname -s)"
 export EDITOR="vim"
 export VISUAL="subl --wait"
 export PAGER="less"
 export LESS="--chop-long-lines --raw-control-chars"
+export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 
+# Linux specific
 if [[ "$SYSTEM" == "Linux" ]]; then
     export LESS="$LESS --shift 0.3"
 fi
 
-# maven
-export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
+# MAC specific
+if [[ "$SYSTEM" == "Darwin" ]]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
 
-# Mac brew
-if whence brew > /dev/null; then
-    export BYOBU_PREFIX=$(brew --prefix)
-    path=($(brew --prefix coreutils)/libexec/gnubin $path)
+    # MAC brew specific
+    if whence brew > /dev/null; then
+        path=($(brew --prefix coreutils)/libexec/gnubin $path)
+    fi
 fi
 
 # aws stuff
