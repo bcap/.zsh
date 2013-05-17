@@ -95,15 +95,14 @@ fpath=(
 )
 
 path=(
-    $HOME/bin 
-    /usr/local/heroku/bin 
-    /usr/local/bin 
-    /usr/local/sbin 
+    /bin 
+    /sbin
     /usr/bin 
     /usr/sbin 
-    /bin 
-    /sbin 
-    $path
+    /usr/local/bin 
+    /usr/local/sbin 
+    /usr/local/heroku/bin # heroku toolbelt    
+    $HOME/bin # personal scripts
 )
 
 HISTSIZE=10000
@@ -128,7 +127,7 @@ if [[ "$SYSTEM" == "Darwin" ]]; then
 
     # MAC brew specific
     if whence brew N; then
-        path=($(brew --prefix coreutils)/libexec/gnubin $path)
+        path=($(brew --prefix coreutils)/libexec/gnubin $path) # Overwrite BSD like core utils (ls, sed, grep, etc) with GNU core utils
     fi
 fi
 
