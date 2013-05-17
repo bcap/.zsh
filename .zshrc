@@ -88,7 +88,7 @@ fi
 ###    Environment Vars    ######################################################################
 #################################################################################################
 
-# setting path and fpath in an array form
+# setting path and fpath in an array form (declared as lowercase variables)
 fpath=(
     ~/.oh-my-zsh/zsh-completions 
     $fpath
