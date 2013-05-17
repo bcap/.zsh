@@ -95,14 +95,14 @@ fpath=(
 )
 
 path=(
-    /bin 
-    /sbin
-    /usr/bin 
-    /usr/sbin 
+    $HOME/bin # personal scripts
+    /usr/local/heroku/bin # heroku toolbelt    
     /usr/local/bin 
     /usr/local/sbin 
-    /usr/local/heroku/bin # heroku toolbelt    
-    $HOME/bin # personal scripts
+    /usr/bin 
+    /usr/sbin 
+    /bin 
+    /sbin   
 )
 
 HISTSIZE=10000
