@@ -77,11 +77,7 @@ alias decrypt='gpg -d'
 
 alias ack='ack-grep'
 
-if whence git N; then
-    alias diff='git diff'
-else
-    alias diff='diff -u'
-fi
+alias diff='diff -u'
 
 
 #################################################################################################
