@@ -61,6 +61,8 @@ alias -g T=' | tail -n 20 '
 alias -g L=' | less '
 alias -g V=' | vim - '
 alias -g F='find . G'
+alias -g S=' | sort '
+alias -g NS=' | sort -n '
 alias -g N=' > /dev/null 2>&1 '
 
 alias ls='ls --color=auto'
@@ -79,6 +81,7 @@ alias ack='ack-grep'
 
 alias diff='diff -u'
 
+alias treesize='du -sm * | sort -n'
 
 #################################################################################################
 ###    Environment Vars    ######################################################################
