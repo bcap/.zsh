@@ -89,19 +89,19 @@ alias treesize='du -sm * | sort -n'
 
 # setting path and fpath in an array form (declared as lowercase variables)
 fpath=(
-    $HOME/.oh-my-zsh/zsh-completions 
+    $HOME/.oh-my-zsh/zsh-completions
     $fpath
 )
 
 path=(
     $HOME/bin # personal scripts
-    /usr/local/heroku/bin # heroku toolbelt    
-    /usr/local/bin 
-    /usr/local/sbin 
-    /usr/bin 
-    /usr/sbin 
-    /bin 
-    /sbin   
+    /usr/local/heroku/bin # heroku toolbelt
+    /usr/local/bin
+    /usr/local/sbin
+    /usr/bin
+    /usr/sbin
+    /bin
+    /sbin
 )
 
 HISTSIZE=10000
@@ -135,7 +135,7 @@ fi
 AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     # personal var do help me out
-    export AWS_CREDENTIALS_DIR 
+    export AWS_CREDENTIALS_DIR
 
     # boto uses this
     export AWS_CREDENTIAL_FILE=$AWS_CREDENTIALS_DIR/aws-credentials-root
