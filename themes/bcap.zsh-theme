@@ -1,3 +1,6 @@
+# this theme uses prompt sequences, check the section
+# 'EXPANSION OF PROMPT SEQUENCES' in the zshmisc man page
+
 # Available git vars:
 #
 # ZSH_THEME_GIT_PROMPT_PREFIX
