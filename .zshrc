@@ -164,13 +164,13 @@ fi
 ###    Functions    #############################################################################
 #################################################################################################
 
-source_if_exists() {
+source-if-exists() {
     if [[ -f $1 ]]; then
         source $@
     fi
 }
 
-run_if_exists() {
+run-if-exists() {
     if [[ $# > 0 ]]; then
         if [[ -f $1 ]] || whence $1 N; then
             $@
@@ -182,7 +182,7 @@ run_if_exists() {
     fi
 }
 
-source_if_exists /usr/local/bin/virtualenvwrapper.sh
+source-if-exists /usr/local/bin/virtualenvwrapper.sh
 
 
 #################################################################################################
