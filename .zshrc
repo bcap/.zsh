@@ -115,6 +115,9 @@ export PAGER="less"
 export LESS="--chop-long-lines --raw-control-chars"
 export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/downloadcache
+export WORKON_HOME=${HOME}/.virtualenvs # virtual env wrapper
+
+mkdir -p $PIP_DOWNLOAD_CACHE $WORKON_HOME
 
 # Linux specific
 if [[ "$SYSTEM" == "Linux" ]]; then
