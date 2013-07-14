@@ -117,7 +117,17 @@ export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip/downloadcache
 export WORKON_HOME=${HOME}/.virtualenvs # virtual env wrapper
 
-mkdir -p $PIP_DOWNLOAD_CACHE $WORKON_HOME
+# Dropbox linking
+DB_BASE_DIR=Dropbox/nix
+if [[ -d $DB_BASE_DIR ]]; then
+    link_db() { [[ ! -d $1 ]] && ln -s $DB_BASE_DIR/$2 $1 }
+    check_db_link() { [[ ! -h $1 ]] && echo "WARNING: $1 should be linked to a subitem in $DB_BASE_DIR/$2" }
+    link_db .gnupg gnupg
+    link_db .pip pip
+    link_db .virtualenvs virtualenvs
+    check_db_link .ssh ssh
+    check_db_link .gitconfig git
+fi
 
 # Linux specific
 if [[ "$SYSTEM" == "Linux" ]]; then
