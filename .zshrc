@@ -114,7 +114,7 @@ export VISUAL="subl --wait"
 export PAGER="less"
 export LESS="--chop-long-lines --raw-control-chars"
 export MAVEN_OPTS="-Xmx256m -XX:MaxPermSize=256m"
-export PIP_DOWNLOAD_CACHE=${HOME}/.pip_download_cache
+export PIP_DOWNLOAD_CACHE=${HOME}/.pip/downloadcache
 
 # Linux specific
 if [[ "$SYSTEM" == "Linux" ]]; then
