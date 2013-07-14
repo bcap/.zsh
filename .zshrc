@@ -127,7 +127,8 @@ if [[ "$SYSTEM" == "Darwin" ]]; then
 
     # MAC brew specific
     if whence brew N; then
-        path=($(brew --prefix coreutils)/libexec/gnubin $path) # Overwrite BSD like core utils (ls, sed, grep, etc) with GNU core utils
+        # Overwrite BSD like core utils (ls, sed, grep, etc) with GNU core utils
+        path=($(brew --prefix coreutils)/libexec/gnubin $path)
     fi
 fi
 
@@ -148,7 +149,7 @@ fi
 
 
 #################################################################################################
-###    Misc Vars    #############################################################################
+###    Misc    ##################################################################################
 #################################################################################################
 
 # Terminal output control (http://www.termsys.demon.co.uk/vtansi.htm)
