@@ -55,8 +55,8 @@ local dir='%{$fg[green]%}%~%{$reset_color%}'
 
 local return_code='%{$fg_bold[grey]%}(%?)%{$reset_color%}'
 
-local running_jobs='%{$fg_bold[blue]%}$(jobs | grep running | wc -l | awk '"'"'$1 > 0 {print $1 " running" }'"'"')%{$reset_color%}'
-local suspended_jobs='%{$fg_bold[red]%}$(jobs | grep suspended | wc -l | awk '"'"'$1 > 0 {print $1 " suspended" }'"'"')%{$reset_color%}'
+local running_jobs='$(jobs | grep running | wc -l | awk '\''$1 > 0 {print "'%{$fg_bold[blue]%}'" $1 " running'%{$reset_color%}'" }'\'')'
+local suspended_jobs='$(jobs | grep suspended | wc -l | awk '\''$1 > 0 {print "'%{$fg_bold[red]%}'" $1 " suspended'%{$reset_color%}'" }'\'')'
 
 PROMPT="${return_code} ${date} ${user}${at}${host} ${dir}${git} %{$reset_color%}
 %# "
