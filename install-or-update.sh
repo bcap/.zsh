@@ -19,7 +19,7 @@ git fetch forkro
 git fetch origin
 
 # checkout and update master
-git branch --set-upstream master origin/master
+git branch --set-upstream master fork/master
 if ! git branch | grep -e '^* master$' > /dev/null; then git checkout master; fi
 git merge origin/master
 git merge forkro/master
