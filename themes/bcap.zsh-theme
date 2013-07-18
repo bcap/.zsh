@@ -13,6 +13,7 @@ local remote_system_color=$fg_bold[red]
 local local_system_color=$fg_bold[yellow]
 
 local dir_color=$fg[green]
+local real_dir_color=$fg_bold[black]
 
 local return_code_color=$fg_bold[grey]
 
@@ -72,12 +73,13 @@ fi
 local date='%{$date_color%}[%*]%{$reset_color%}'
 local git='$(git_prompt_info) $(git_prompt_status) %{$reset_color%}'
 local dir='%{$dir_color%}%~%{$reset_color%}'
+local real_dir='$(real=$(readlink -f .) && [[ "$(pwd)" != "$real" ]] && echo -n " %{$real_dir_color%}${real}%{$reset_color%}")'
 
 local return_code='%{$return_code_color%}(%?)%{$reset_color%}'
 
 local running_jobs='$(jobs | grep running | wc -l | awk '\''$1 > 0 {print "'%{$running_jobs_color%}'" $1 " running'%{$reset_color%}'" }'\'')'
 local suspended_jobs='$(jobs | grep suspended | wc -l | awk '\''$1 > 0 {print "'%{$suspended_jobs_color%}'" $1 " suspended'%{$reset_color%}'" }'\'')'
 
-PROMPT="${return_code} ${date} ${user}${at}${host} ${dir}${git} %{$reset_color%}
+PROMPT="${return_code} ${date} ${user}${at}${host} ${dir}${real_dir}${git}%{$reset_color%}
 %# "
 RPROMPT="${running_jobs} ${suspended_jobs}"
