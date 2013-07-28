@@ -186,7 +186,8 @@ sync-zsh() { rsync -av ~/.oh-my-zsh ~/.zshrc "${1}:" }
 
 ssh-with-sync() { sync-zsh $1 && ssh $1 }
 
-source-if-exists /usr/local/bin/virtualenvwrapper.sh
+source-if-exists /usr/local/bin/virtualenvwrapper.sh # ubuntu
+source-if-exists /usr/local/share/python/virtualenvwrapper.sh # mac brew
 
 
 #################################################################################################
