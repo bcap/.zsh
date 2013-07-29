@@ -104,8 +104,8 @@ path=(
     /sbin
 )
 
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # general vars
 export SYSTEM="$(uname -s)"
