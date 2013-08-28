@@ -125,7 +125,7 @@ if [[ -d $DB_BASE_DIR ]]; then
     link_db .gnupg gnupg
     link_db .pip pip
     link_db .virtualenvs virtualenvs
-    check_db_link .ssh ssh
+    link_db .ssh ssh
     check_db_link .gitconfig git
 fi
 
