@@ -69,8 +69,8 @@ alias ls='ls --color=auto'
 alias ll='ls -lhp'
 alias la='ll -A'
 
-alias today='date +%Y%m%d'
-alias now='date +%Y%m%d-%H%M%S'
+alias today='date +%Y-%m-%d'
+alias now='date +%Y-%m-%dT%H:%M:%S'
 
 alias gpg='gpg --personal-cipher-preferences AES256 --personal-compress-preferences ZLIB --armor'
 alias encrypt-with-pass='gpg --symmetric'
