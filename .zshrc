@@ -68,6 +68,7 @@ alias -g N=' > /dev/null 2>&1 '
 alias ls='ls --color=auto'
 alias ll='ls -lhp'
 alias la='ll -A'
+alias l='la'
 
 alias today='date +%Y-%m-%d'
 alias now='date +%Y-%m-%dT%H:%M:%S'
