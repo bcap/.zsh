@@ -11,7 +11,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bcap"
 
-plugins=(git)
+plugins=(git vagrant)
 
 # Enabling oh-my-zsh
 source $ZSH/oh-my-zsh.sh
