@@ -11,7 +11,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bcap"
 
-plugins=(git)
+plugins=(git vagrant)
 
 # Enabling oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -68,6 +68,7 @@ alias -g N=' > /dev/null 2>&1 '
 alias ls='ls --color=auto'
 alias ll='ls -lhp'
 alias la='ll -A'
+alias l='la'
 
 alias today='date +%Y-%m-%d'
 alias now='date +%Y-%m-%dT%H:%M:%S'
@@ -124,8 +125,8 @@ if [[ -d $DB_BASE_DIR ]]; then
     check_db_link() { [[ ! -h $1 ]] && echo "WARNING: $1 should be linked to a subitem in $DB_BASE_DIR/$2" }
     link_db .gnupg gnupg
     link_db .pip pip
-    link_db .virtualenvs virtualenvs
     link_db .ssh ssh
+    link_db bin bin
     check_db_link .gitconfig git
 fi
 
