@@ -147,7 +147,7 @@ if [[ "$SYSTEM" == "Darwin" ]]; then
 fi
 
 # aws stuff
-AWS_CREDENTIALS_DIR=$HOME/Dropbox/nix/aws
+AWS_CREDENTIALS_DIR=Dropbox/nix/aws/credentials
 if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     # personal var do help me out
     export AWS_CREDENTIALS_DIR
