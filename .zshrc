@@ -171,13 +171,16 @@ source-if-exists /usr/local/share/python/virtualenvwrapper.sh # mac brew
 #################################################################################################
 
 # Dropbox linking
-DB_BASE_DIR=Dropbox/nix
-if [[ -d $DB_BASE_DIR ]]; then
-    link_db() { test ! -d $1 && ln -s $DB_BASE_DIR/$2 $1 }
-    check_db_link() { test ! -h $1 && echo "WARNING: $1 should be linked to a subitem in $DB_BASE_DIR/$2" }
-    link_db .gnupg gnupg
-    link_db .pip pip
-    link_db .ssh ssh
-    link_db bin bin
-    check_db_link .gitconfig git
+if [[ -d Dropbox ]]; then
+
+    test ! -e .gnupg && ln -s Dropbox/nix/.gnupg
+    test ! -e .pip && ln -s Dropbox/nix/.pip
+    test ! -e .ssh && ln -s Dropbox/nix/.ssh
+    test ! -e bin && ln -s Dropbox/nix/bin
+
+    test ! -e .gitconfig && echo "warning: .gitconfig should be linked to a subitem in Dropbox/nix/git"
+
+    test ! -e "Library/Application Support/Sublime Text 2/Packages/User" &&
+        ln -s "../../../../Dropbox/softs/Sublime Text 2/User" "Library/Application Support/Sublime Text 2/Packages"
+
 fi
