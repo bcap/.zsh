@@ -98,7 +98,7 @@ run-if-exists() {
     fi
 }
 
-sync-zsh() { rsync -av --exclude '~/.oh-my-zsh/.git' ~/.oh-my-zsh ~/.zshrc "${1}:" }
+sync-zsh() { rsync -av ~/.oh-my-zsh ~/.zshrc "${1}:" }
 
 ssh-with-sync() { sync-zsh $1 && ssh $1 }
 
