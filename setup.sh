@@ -25,5 +25,8 @@ git pull fork master
 git pull origin master
 git pull forkro master
 
+# compact repository
+git gc --prune --aggressive
+
 # create the symbolic link
 test ! -e "$HOME/.zshrc" && ln -s -v "$(pwd)/.zshrc" "$HOME/.zshrc"
