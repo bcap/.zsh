@@ -11,18 +11,19 @@ cd $(dirname $0)
 if [ ! -d .git ]; then git init; fi
 
 # adjust remotes
-git remote | xargs -I '$' git remote rm '$'
-git remote add -t master fork   git@github.com:bcap/oh-my-zsh.git
-git remote add -t master forkro git://github.com/bcap/oh-my-zsh.git
-git remote add -t master origin git://github.com/robbyrussell/oh-my-zsh.git
-git fetch forkro
-git fetch origin
+git remote | grep -q -e '^fork$'   || git remote add -t master fork   git@github.com:bcap/oh-my-zsh.git
+git remote | grep -q -e '^forkro$' || git remote add -t master forkro git://github.com/bcap/oh-my-zsh.git
+git remote | grep -q -e '^origin$' || git remote add -t master origin git://github.com/robbyrussell/oh-my-zsh.git
 
-# checkout and update master
-if ! git branch | grep -q -e '^* master$'; then git checkout master; fi
-git branch --set-upstream-to fork/master
-git merge origin/master
-git merge forkro/master
+# checkout and adjust master
+git branch | grep -q -e '^* master$' || git checkout master
+git branch -vv | grep -q '[fork/master]' || git branch --set-upstream-to fork/master
+
+# merge remotes into master
+export GIT_MERGE_AUTOEDIT=no
+git pull fork master
+git pull origin master
+git pull forkro master
 
 # create the symbolic link
-if [ ! -e "$HOME/.zshrc" ]; then ln -s -v "$(pwd)/.zshrc" "$HOME/.zshrc"; fi
+test ! -e "$HOME/.zshrc" && ln -s -v "$(pwd)/.zshrc" "$HOME/.zshrc"
