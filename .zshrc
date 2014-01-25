@@ -102,12 +102,9 @@ sync-zsh() { rsync -av --exclude '~/.oh-my-zsh/.git' ~/.oh-my-zsh ~/.zshrc "${1}
 
 ssh-with-sync() { sync-zsh $1 && ssh $1 }
 
-source-if-exists /usr/local/bin/virtualenvwrapper.sh # ubuntu
-source-if-exists /usr/local/share/python/virtualenvwrapper.sh # mac brew
-
 
 #################################################################################################
-###    Environment Vars    ######################################################################
+###    Environment Setup    #####################################################################
 #################################################################################################
 
 # setting path and fpath in an array form (declared as lowercase variables)
@@ -164,6 +161,9 @@ if [[ -d $AWS_CREDENTIALS_DIR ]]; then
     export AWS_ACCESS_KEY=$(grep AWSAccessKeyId $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
     export AWS_SECRET_KEY=$(grep AWSSecretKey $AWS_CREDENTIAL_FILE | cut -d '=' -f 2)
 fi
+
+source-if-exists /usr/local/bin/virtualenvwrapper.sh # ubuntu
+source-if-exists /usr/local/share/python/virtualenvwrapper.sh # mac brew
 
 
 #################################################################################################
