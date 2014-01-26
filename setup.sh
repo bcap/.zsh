@@ -29,4 +29,4 @@ git pull forkro master
 git gc --prune --aggressive
 
 # create the symbolic link
-test ! -e "$HOME/.zshrc" && ln -s -v "$(pwd)/.zshrc" "$HOME/.zshrc"
+test ! -e "$HOME/.zshrc" && ln -s -v "${PWD##*/}/.zshrc" "$HOME/.zshrc"
