@@ -2,8 +2,8 @@
 ###    Oh My Zsh    #############################################################################
 #################################################################################################
 
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="bcap"
+ZSH=$HOME/.zsh
+ZSH_THEME="bcap" # my personal theme
 plugins=(git vagrant)
 source $ZSH/oh-my-zsh.sh
 
@@ -98,7 +98,7 @@ run-if-exists() {
     fi
 }
 
-sync-zsh() { rsync -av ~/.oh-my-zsh ~/.zshrc "${1}:" }
+sync-zsh() { rsync -av ~/.zsh ~/.zshrc "${1}:" }
 
 ssh-with-sync() { sync-zsh $1 && ssh $1 }
 
@@ -109,7 +109,7 @@ ssh-with-sync() { sync-zsh $1 && ssh $1 }
 
 # setting path and fpath in an array form (declared as lowercase variables)
 fpath=(
-    $HOME/.oh-my-zsh/zsh-completions
+    $HOME/.zsh/zsh-completions
     $fpath
 )
 
