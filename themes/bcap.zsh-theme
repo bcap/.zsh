@@ -71,7 +71,7 @@ else
 fi
 
 local date='%{$date_color%}[%*]%{$reset_color%}'
-local git='$(git_prompt_info) $(git_prompt_status) %{$reset_color%}'
+local git='$(git_prompt_info) %{$reset_color%}'
 local dir='%{$dir_color%}%~%{$reset_color%}'
 local real_dir='$(real=$(readlink -f .) && [[ "$PWD" != "$real" ]] && echo -n " %{$real_dir_color%}${real}%{$reset_color%}")'
 
