@@ -17,7 +17,7 @@ git remote | grep -q -e '^origin$' || git remote add -t master origin git://gith
 
 # checkout and adjust master
 git branch | grep -q -e '^* master$' || git checkout master
-git branch -vv | grep -q '[fork/master]' || git branch --set-upstream-to fork/master
+git branch -vv | grep -q '\[fork/master\]' || git branch --set-upstream-to fork/master
 
 # merge remotes into master
 export GIT_MERGE_AUTOEDIT=no
