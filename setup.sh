@@ -11,8 +11,8 @@ cd $(dirname $0)
 if [ ! -d .git ]; then git init; fi
 
 # adjust remotes
-git remote | grep -q -e '^fork$'   || git remote add -t master fork   git@github.com:bcap/oh-my-zsh.git
-git remote | grep -q -e '^forkro$' || git remote add -t master forkro git://github.com/bcap/oh-my-zsh.git
+git remote | grep -q -e '^fork$'   || git remote add -t master fork   git@github.com:bcap/.zsh.git
+git remote | grep -q -e '^forkro$' || git remote add -t master forkro git://github.com/bcap/.zsh.git
 git remote | grep -q -e '^origin$' || git remote add -t master origin git://github.com/robbyrussell/oh-my-zsh.git
 
 # checkout and adjust master
